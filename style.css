@@ -1,0 +1,454 @@
+html {
+    scroll-behavior: smooth;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Georgia', serif;
+    background-color: #e7e2dd;
+    color: #131313;
+    line-height: 1.6;
+    min-height: 100vh;
+}
+
+/* Header / Nav */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 28px 50px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #e7e2dd;
+    border-bottom: 1px solid #c0bbb5;
+    z-index: 1000;
+}
+
+.band-name-header {
+    font-size: 1.1rem;
+    font-weight: normal;
+    color: #131313;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-family: 'Arial', sans-serif;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 32px;
+}
+
+nav a {
+    color: #758073;
+    text-decoration: none;
+    font-size: 0.85rem;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    font-family: 'Arial', sans-serif;
+    transition: color 0.3s;
+}
+
+nav a:hover {
+    color: #131313;
+}
+
+nav a:focus-visible {
+    outline: 2px solid #758073;
+    outline-offset: 3px;
+    border-radius: 2px;
+}
+
+/* Hero — large centered band name */
+.hero {
+    text-align: center;
+    padding: 180px 20px 80px;
+}
+
+.hero h1 {
+    font-size: 5.5rem;
+    font-weight: normal;
+    color: #131313;
+    letter-spacing: 6px;
+    text-transform: uppercase;
+    line-height: 1.1;
+}
+
+.hero-listen {
+    display: inline-block;
+    margin-top: 30px;
+    font-size: 0.8rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #758073;
+    text-decoration: none;
+    font-family: 'Arial', sans-serif;
+    transition: color 0.3s;
+    min-height: 44px;
+    line-height: 44px;
+    padding: 0 8px;
+}
+
+.hero-listen:hover {
+    color: #131313;
+}
+
+.hero-listen:focus-visible {
+    outline: 2px solid #758073;
+    outline-offset: 3px;
+    border-radius: 2px;
+}
+
+/* Divider */
+.divider {
+    width: 60px;
+    height: 1px;
+    background-color: #758073;
+    margin: 0 auto;
+}
+
+/* Bio section */
+.bio-section {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 80px 30px;
+    text-align: center;
+}
+
+.bio-section p {
+    font-size: 1.15rem;
+    color: #131313;
+    line-height: 1.9;
+    font-style: italic;
+}
+
+/* Band image */
+.band-image-section {
+    width: 100%;
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 0 30px 60px;
+}
+
+.band-image {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+}
+
+/* Members */
+.members-section {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 40px 30px 80px;
+}
+
+.member-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 18px 0;
+    border-bottom: 1px solid #c0bbb5;
+}
+
+.member-row:first-child {
+    border-top: 1px solid #c0bbb5;
+}
+
+.member-name {
+    font-size: 1.05rem;
+    color: #131313;
+    font-family: 'Arial', sans-serif;
+    font-weight: normal;
+    letter-spacing: 1px;
+}
+
+.member-role {
+    font-size: 0.8rem;
+    color: #758073;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-family: 'Arial', sans-serif;
+}
+
+/* Music & Shows */
+.music-shows {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 40px 30px 80px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+}
+
+.music-column h2,
+.shows-column h2 {
+    font-size: 0.8rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #758073;
+    font-family: 'Arial', sans-serif;
+    font-weight: normal;
+    margin-bottom: 30px;
+}
+
+/* Song list */
+.song-list {
+    list-style: none;
+}
+
+.song-item {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 8px 0;
+    border-bottom: 1px solid #c0bbb5;
+    cursor: pointer;
+    transition: all 0.3s;
+    min-height: 52px;
+}
+
+.song-item:first-child {
+    border-top: 1px solid #c0bbb5;
+}
+
+.song-item:hover .song-title {
+    color: #131313;
+}
+
+.song-item.playing .song-title {
+    color: #9f4242;
+}
+
+.song-item:focus-visible {
+    outline: 2px solid #758073;
+    outline-offset: 2px;
+}
+
+.play-btn {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: 1px solid #758073;
+    background: transparent;
+    color: #758073;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: border-color 0.3s, color 0.3s;
+    cursor: pointer;
+}
+
+.song-item:hover .play-btn {
+    border-color: #131313;
+    color: #131313;
+}
+
+.song-item.playing .play-btn {
+    border-color: #9f4242;
+    color: #9f4242;
+    animation: pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.12); }
+}
+
+.song-title {
+    font-size: 0.95rem;
+    color: #758073;
+    font-family: 'Arial', sans-serif;
+    font-weight: normal;
+    letter-spacing: 0.5px;
+    transition: color 0.3s;
+    margin-bottom: 6px;
+}
+
+.song-info {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.progress-container {
+    width: 100%;
+    height: 16px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    position: relative;
+    display: none;
+}
+
+.progress-track {
+    width: 100%;
+    height: 4px;
+    background-color: #c0bbb5;
+    border-radius: 2px;
+    position: relative;
+    overflow: hidden;
+}
+
+.song-item.playing .progress-container {
+    display: flex;
+}
+
+.progress-bar {
+    height: 100%;
+    background-color: #9f4242;
+    border-radius: 2px;
+    width: 0%;
+    transition: width 0.1s linear;
+}
+
+.visualizer {
+    display: none;
+    gap: 3px;
+    align-items: flex-end;
+    height: 20px;
+}
+
+.visualizer.active {
+    display: flex;
+}
+
+.bar {
+    width: 2px;
+    background-color: #9f4242;
+    border-radius: 1px;
+    animation: wave 0.8s ease-in-out infinite;
+}
+
+.bar:nth-child(1) { animation-delay: 0s; }
+.bar:nth-child(2) { animation-delay: 0.1s; }
+.bar:nth-child(3) { animation-delay: 0.2s; }
+.bar:nth-child(4) { animation-delay: 0.3s; }
+.bar:nth-child(5) { animation-delay: 0.2s; }
+.bar:nth-child(6) { animation-delay: 0.1s; }
+
+@keyframes wave {
+    0%, 100% { height: 4px; }
+    50% { height: 18px; }
+}
+
+/* Shows list */
+.show-list {
+    list-style: none;
+}
+
+.show-item {
+    padding: 14px 0;
+    border-bottom: 1px solid #c0bbb5;
+}
+
+.show-item:first-child {
+    border-top: 1px solid #c0bbb5;
+}
+
+.show-date {
+    font-size: 0.95rem;
+    color: #131313;
+    font-family: 'Arial', sans-serif;
+    font-weight: normal;
+    letter-spacing: 1px;
+    margin-bottom: 4px;
+}
+
+.show-venue {
+    font-size: 0.8rem;
+    color: #758073;
+    font-family: 'Arial', sans-serif;
+    letter-spacing: 0.5px;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 60px 20px 50px;
+    border-top: 1px solid #c0bbb5;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+footer p {
+    font-size: 0.75rem;
+    color: #758073;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    font-family: 'Arial', sans-serif;
+    margin-bottom: 12px;
+}
+
+footer a {
+    color: #758073;
+    text-decoration: none;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+    font-family: 'Arial', sans-serif;
+    transition: color 0.3s;
+}
+
+footer a:hover {
+    color: #131313;
+}
+
+footer a:focus-visible {
+    outline: 2px solid #758073;
+    outline-offset: 3px;
+    border-radius: 2px;
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    .song-item.playing .play-btn {
+        animation: none;
+    }
+    .bar {
+        animation: none;
+        height: 10px;
+    }
+    html {
+        scroll-behavior: auto;
+    }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        gap: 20px;
+        padding: 24px 20px;
+    }
+
+    .hero h1 {
+        font-size: 3rem;
+        letter-spacing: 3px;
+    }
+
+    .hero {
+        padding: 140px 20px 50px;
+    }
+
+    .music-shows {
+        grid-template-columns: 1fr;
+        gap: 50px;
+        padding: 40px 20px 60px;
+    }
+
+    .bio-section,
+    .band-image-section,
+    .members-section {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+}
