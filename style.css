@@ -371,13 +371,6 @@ nav a:focus-visible {
     letter-spacing: 0.5px;
 }
 
-.show-time {
-    font-size: 0.75rem;
-    color: #758073;
-    font-family: 'Arial', sans-serif;
-    opacity: 0.75;
-}
-
 /* Footer */
 footer {
     text-align: center;
